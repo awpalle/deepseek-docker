@@ -12,5 +12,11 @@ RUN mkdir -p /root/.ollama/models/
 # Hent modellen fra Google Drive
 RUN wget --no-check-certificate -O /root/.ollama/models/deepseek-model.gguf "https://drive.google.com/uc?export=download&id=1plZCG8-naHBIroqgmfykWbE9hn84AK0w"
 
+# Fortæl Render, at vi bruger port 11434
+ENV PORT=11434
+
+# Eksponér porten i Docker-containeren
+EXPOSE 11434
+
 # Brug entrypoint til at starte Ollama korrekt
 ENTRYPOINT ["sh", "-c", "OLLAMA_HOST=0.0.0.0 ollama serve"]
