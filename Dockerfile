@@ -34,4 +34,4 @@ EXPOSE 11434
 RUN echo "FROM /root/.ollama/models/deepseek-r1-1.5b.gguf" > /root/.ollama/models/Modelfile
 
 # Start Ollama og registrer modellen efter opstart
-CMD ["sh", "-c", "ollama serve & sleep 5 && ollama create deepseek-r1:1.5b -f /root/.ollama/models/Modelfile && tail -f /dev/null"]
+CMD ["sh", "-c", "export OLLAMA_HOST=0.0.0.0:11434 && ollama serve & sleep 5 && ollama create deepseek-r1:1.5b -f /root/.ollama/models/Modelfile && tail -f /dev/null"]
