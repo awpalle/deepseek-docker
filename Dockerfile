@@ -19,8 +19,5 @@ ENV PORT=11434
 EXPOSE 11434
 
 # Start Ollama og registrer modellen ved opstart
-CMD sh -c "
-    ollama serve & 
-    sleep 5 && 
-    ollama create deepseek-r1:1.5b -f /root/.ollama/models/deepseek-model.gguf &&
-    tail -f /dev/null"
+CMD ["sh", "-c", "ollama serve & sleep 5 && ollama create deepseek-r1:1.5b -f /root/.ollama/models/deepseek-model.gguf && tail -f /dev/null"]
+
