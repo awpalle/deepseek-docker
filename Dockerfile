@@ -6,8 +6,8 @@ RUN apt update && apt install -y curl
 # Installer Ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
-# Hent Deepseek-modellen
-RUN ollama pull deepseek/deepseek-r1:1.5b
+# Start Ollama midlertidigt for at hente modellen
+RUN ollama serve & sleep 5 && ollama pull deepseek/deepseek-r1:1.5b
 
-# Start Ollama-serveren
+# Start Ollama-serveren permanent
 CMD ["ollama", "serve"]
