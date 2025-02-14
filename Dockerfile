@@ -13,4 +13,4 @@ RUN mkdir -p /root/.ollama/models/
 RUN wget --no-check-certificate -O /root/.ollama/models/deepseek-model.gguf "https://drive.google.com/uc?export=download&id=1plZCG8-naHBIroqgmfykWbE9hn84AK0w"
 
 # Start Ollama-serveren
-CMD ["ollama", "serve", "--host", "0.0.0.0"]
+CMD ["ollama", "serve"]
