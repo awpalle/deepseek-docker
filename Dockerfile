@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 # Installer afhængigheder
-RUN apt update && apt install -y curl wget python3 python3-pip
+RUN apt update && apt install -y curl wget python3 python3-pip file
 
 # Installer Ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh
