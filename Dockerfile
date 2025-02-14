@@ -18,5 +18,11 @@ ENV PORT=11434
 # Eksponér porten i Docker-containeren
 EXPOSE 11434
 
-# Brug entrypoint til at starte Ollama korrekt
-ENTRYPOINT ["sh", "-c", "OLLAMA_HOST=0.0.0.0 ollama serve"]
+# Registrer modellen i Ollama
+RUN ollama create deepseek-r1:1.5b -f /root/.ollama/models/deepseek-model.gguf
+
+# Log tilgængelige modeller (debug)
+RUN ollama list
+
+# Start Ollama korrekt
+CMD ["sh", "-c", "OLLAMA_HOST=0.0.0.0 ollama serve"]
